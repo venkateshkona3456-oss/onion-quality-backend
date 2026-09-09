@@ -64,8 +64,8 @@ public class AssessmentController {
         org.springframework.http.HttpEntity<org.springframework.util.LinkedMultiValueMap<String, Object>> requestEntity =
                 new org.springframework.http.HttpEntity<>(body, headers);
 
-        Map<String, Object> aiResponse = restTemplate.postForObject(
-                "http://localhost:8000/predict", requestEntity, Map.class);
+       Map<String, Object> aiResponse = restTemplate.postForObject(
+        "https://onion-ai-model.onrender.com/predict", requestEntity, Map.class);
 
         // Calculate Grade A % and URS % (proportional to detected defects)
         Map<String, Object> classCounts = (Map<String, Object>) aiResponse.get("class_counts");
